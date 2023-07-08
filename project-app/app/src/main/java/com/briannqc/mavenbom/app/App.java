@@ -3,12 +3,14 @@
  */
 package com.briannqc.mavenbom.app;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import com.briannqc.mavenbom.lib.FutureStub;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import java.util.concurrent.ExecutionException;
+
+public class App {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        final var future = FutureStub.ofString("Hello Maven BOM");
+        System.out.println(future.get());
     }
 }
